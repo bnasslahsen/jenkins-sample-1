@@ -18,11 +18,7 @@ node () {
  		} 
 	}
 	withMaven(maven: 'MAVEN-3') { 
- 			if(isUnix()) {
- 				 sh "mvn sonar:sonar"
-			} else { 
- 				bat "mvn clean package " 
-			} 
+ 			sh "mvn sonar:sonar"
  		} 
 	}
 }
