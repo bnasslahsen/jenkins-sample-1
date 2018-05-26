@@ -17,11 +17,13 @@ node () {
 			} 
  		} 
 	}
-	stage('quality analysis') {
-            withSonarQubeEnv('Sonar') {
-                sh "mvn sonar:sonar"
-            }
-        }
-	
+	withMaven(maven: 'MAVEN-3') { 
+ 			if(isUnix()) {
+ 				 sh "mvn sonar:sonar"
+			} else { 
+ 				bat "mvn clean package " 
+			} 
+ 		} 
+	}
 }
 }
