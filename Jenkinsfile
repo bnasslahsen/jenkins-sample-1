@@ -17,5 +17,11 @@ node () {
 			} 
  		} 
 	}
+	stage('quality analysis') {
+            withSonarQubeEnv('Sonar') {
+                sh "./mvnw sonar:sonar"
+            }
+        }
+	
 }
 }
