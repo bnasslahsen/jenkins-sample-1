@@ -1,5 +1,3 @@
-// Powered by Infostretch 
-
 timestamps {
 
 node () {
@@ -17,8 +15,15 @@ node () {
 			} 
  		} 
 	}
+	
+	stage ('App-IC - Quality') {
 	withMaven(maven: 'MAVEN-3') { 
  			sh "mvn sonar:sonar"
+ 		} 
+	}
+	stage ('App-IC - Deploy') {
+	withMaven(maven: 'MAVEN-3') { 
+ 			sh "mvn deploy"
  		} 
 	}
 }
