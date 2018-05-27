@@ -9,22 +9,6 @@
 	<name>SampleProject</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-		<repositories>
-			<repository>
-				<id>maven-group</id>
-				<url>http://your-host:8081/repository/maven-group/</url>
-			</repository>
-		</repositories>
-		<distributionManagement>
-			<snapshotRepository>
-				<id>nexus-snapshots</id>
-				<url>http://your-host:8081/repository/maven-snapshots/</url>
-			</snapshotRepository>
-			<repository>
-				<id>nexus-releases</id>
-				<url>http://your-host:8081/repository/maven-releases/</url>
-			</repository>
-		</distributionManagement>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -32,4 +16,20 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<repositories>
+		<repository>
+			<id>maven-group</id>
+			<url>http://your-host:8081/repository/maven-group/</url>
+		</repository>
+	</repositories>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://your-host:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>nexus-releases</id>
+			<url>http://your-host:8081/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
 </project>
