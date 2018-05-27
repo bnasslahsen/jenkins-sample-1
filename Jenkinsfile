@@ -26,4 +26,5 @@ node () {
  			sh "mvn deploy"
  		} 
 	}
+  }
 }
