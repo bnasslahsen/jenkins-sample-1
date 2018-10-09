@@ -4,8 +4,6 @@ timestamps {
 
 node () {
 
-	env.JAVA_HOME = "${jdk}"
-	
 	stage ('APP-IC - Checkout') {
  	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-login', url: 'https://github.com/bnasslahsen/jenkins-sample-1.git']]]) 
 	}
@@ -17,7 +15,16 @@ node () {
 			} else { 
  				bat "mvn clean package " 
 			} 
- 		} 
+ 		}		// Maven build step
+	withMaven(maven: 'maven-3.5.4') { 
+ 			if(isUnix()) {
+ 				sh "mvn sonar:sonar deploy " 
+			} else { 
+ 				bat "mvn sonar:sonar deploy " 
+			} 
+ 		}
+		// JUnit Results
+		junit '**/target/surefire-reports/*.xml' 
 	}
 }
 }
