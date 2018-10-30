@@ -3,7 +3,7 @@
 	<groupId>fr.apollo.samples</groupId>
 	<artifactId>SampleProject</artifactId>
 	<packaging>jar</packaging>
-	<version>1.5-SNAPSHOT</version>
+	<version>1.6-SNAPSHOT</version>
 	<name>SampleProject</name>
 	<url>http://maven.apache.org</url>
 	<build>
