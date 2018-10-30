@@ -28,7 +28,7 @@ node () {
  		}		// Maven build step
 	}
 	
-	stage ('Test) {
+	stage ('Test') {
  			// Maven build step
 	withMaven(maven: 'maven-3.5.4') { 
  			if(isUnix()) {
