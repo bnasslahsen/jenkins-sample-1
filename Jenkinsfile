@@ -43,9 +43,9 @@ node () {
  				// Maven build step
 	withMaven(maven: 'maven-3.5.4') { 
  			if(isUnix()) {
- 				sh "mvn sonar:sonar deploy " 
+ 				sh "mvn sonar:sonar " 
 			} else { 
- 				bat "mvn sonar:sonar deploy " 
+ 				bat "mvn sonar:sonar " 
 			} 
  		}
 	}
