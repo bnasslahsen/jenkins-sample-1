@@ -17,5 +17,26 @@ node () {
 			} 
  		} 
 	}
+	
+	stage ('APP-IC - Quality Analysis') {
+	withMaven(maven: 'maven-3.5.4') { 
+ 			if(isUnix()) {
+ 				sh "mvn sonar:sonar" 
+			} else { 
+ 				bat "mvn sonar:sonar" 
+			} 
+ 		} 
+}
+
+stage ('APP-IC - Deploy') {
+	withMaven(maven: 'maven-3.5.4') { 
+ 			if(isUnix()) {
+ 				sh "mvn deploy" 
+			} else { 
+ 				bat "mvn deploy" 
+			} 
+ 		} 
+}
+	
 }
 }
