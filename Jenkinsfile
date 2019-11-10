@@ -17,6 +17,16 @@ node () {
 			} 
  		} 
 	}
+	stage ('APP-IC - Quality Analysis') {
+	withMaven(maven: 'maven') { 
+ 			if(isUnix()) {
+ 				sh "mvn sonar:sonar" 
+			} else { 
+ 				bat "mvn sonar:sonar" 
+			} 
+ 		} 
+       }
+
 	stage ('APP-IC - Post build actions') {
 /*
 Please note this is a direct conversion of post-build actions. 
