@@ -36,6 +36,17 @@ node () {
  		} 
 	}
 	
+	
+	stage("Release") {
+            when {
+                expression { params.RELEASE }
+            }
+            steps {
+                sh "mvn -B release:prepare"
+                sh "mvn -B release:perform"
+            }
+        }
+	
      parameters {
         booleanParam(name: "RELEASE",
                 description: "Build a release from current commit.",
