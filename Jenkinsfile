@@ -35,8 +35,12 @@ node () {
 			} 
  		} 
 	}
-	
-	
+
+	parameters {
+        booleanParam(name: "RELEASE",
+                description: "Build a release from current commit.",
+                defaultValue: false)
+        }
 	stage("Release") {
             when {
                 expression { params.RELEASE }
@@ -46,12 +50,6 @@ node () {
                 sh "mvn -B release:perform"
             }
         }
-	
-     parameters {
-        booleanParam(name: "RELEASE",
-                description: "Build a release from current commit.",
-                defaultValue: false)
-    }
 	
 	stage ('APP-IC - Post build actions') {
 /*
