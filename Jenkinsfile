@@ -35,6 +35,13 @@ node () {
 			} 
  		} 
 	}
+	
+     parameters {
+        booleanParam(name: "RELEASE",
+                description: "Build a release from current commit.",
+                defaultValue: false)
+    }
+	
 	stage ('APP-IC - Post build actions') {
 /*
 Please note this is a direct conversion of post-build actions. 
