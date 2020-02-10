@@ -7,6 +7,17 @@ node () {
 	stage ('APP-IC - Checkout') {
  	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-login', url: 'https://github.com/bnasslahsen/jenkins-sample-1.git']]]) 
 	}
+	
+		stage ('APP-IC - Quality Analysis') {
+	withMaven(maven: 'maven') { 
+ 			if(isUnix()) {
+ 				sh "mvn sonar:sonar" 
+			} else { 
+ 				bat "mvn sonar:sonar" 
+			} 
+ 		} 
+       }
+	
 	stage ('APP-IC - Build') {
  			// Maven build step
 	withMaven(maven: 'maven') { 
@@ -17,15 +28,7 @@ node () {
 			} 
  		} 
 	}
-	stage ('APP-IC - Quality Analysis') {
-	withMaven(maven: 'maven') { 
- 			if(isUnix()) {
- 				sh "mvn sonar:sonar" 
-			} else { 
- 				bat "mvn sonar:sonar" 
-			} 
- 		} 
-       }
+
 	stage ('APP-IC - Post build actions') {
 /*
 Please note this is a direct conversion of post-build actions. 
