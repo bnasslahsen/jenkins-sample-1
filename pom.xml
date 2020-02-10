@@ -6,6 +6,12 @@
 	<version>1.10-SNAPSHOT</version>
 	<name>SampleProject</name>
 	<url>http://maven.apache.org</url>
+
+	<properties>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
