@@ -37,17 +37,17 @@
 	<repositories>
 		<repository>
 			<id>maven-group</id>
-			<url>http://localhost:8081/repository/maven-public/</url>
+			<url>http://34.77.250.128:8081/repository/maven-public/</url>
 		</repository>
 	</repositories>
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
-			<url>http://localhost:8081/repository/maven-snapshots/</url>
+			<url>http://34.77.250.128:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
 		<repository>
 			<id>nexus-releases</id>
-			<url>http://localhost:8081/repository/maven-releases/</url>
+			<url>http://34.77.250.128:8081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
 	<scm>
