@@ -34,26 +34,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<repositories>
-		<repository>
-			<id>maven-group</id>
-			<url>http://35.187.84.181:8081/repository/maven-public/</url>
-		</repository>
-	</repositories>
-	<distributionManagement>
-		<snapshotRepository>
-			<id>nexus-snapshots</id>
-			<url>http://35.187.84.181:8081/repository/maven-snapshots/</url>
-		</snapshotRepository>
-		<repository>
-			<id>nexus-releases</id>
-			<url>http://35.187.84.181:8081/repository/maven-releases/</url>
-		</repository>
-	</distributionManagement>
-	<scm>
-		<connection>scm:git:https://github.com/bnasslahsen/jenkins-sample-1.git</connection>
-		<url>https://github.com/bnasslahsen/jenkins-sample-1</url>
-		<developerConnection>scm:git:https://github.com/bnasslahsen/jenkins-sample-1.git</developerConnection>
-        <tag>HEAD</tag>
-  </scm>
 </project>
