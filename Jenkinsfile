@@ -18,12 +18,6 @@ node () {
 		} 
 	  } 
 	}
-
-	stage('Quality check') {
-	  withSonarQubeEnv('Sonar') {
-		  bat "mvn sonar:sonar"
-	   }
-	} 
 	
 	stage('Deploy') {
 	   withMaven(maven: 'maven') { 
