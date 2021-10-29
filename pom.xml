@@ -1,11 +1,9 @@
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.apollo.samples</groupId>
     <artifactId>SampleProject</artifactId>
     <packaging>jar</packaging>
-    <version>1.13-SNAPSHOT</version>
+    <version>1.13</version>
     <name>SampleProject</name>
     <url>http://maven.apache.org</url>
     <build>
@@ -59,6 +57,6 @@
         <connection>scm:git:https://github.com/bnasslahsen/jenkins-sample-1.git</connection>
         <url>https://github.com/bnasslahsen/jenkins-sample-1</url>
         <developerConnection>scm:git:https://github.com/bnasslahsen/jenkins-sample-1.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v1.13</tag>
     </scm>
 </project>
