@@ -12,7 +12,7 @@ node () {
 	stage ('APP-IC - Build') {
 	  withMaven(maven: 'maven') { 
 		if(isUnix()) {
-			sh "mvn clean package " 
+			sh "mvn clean  " 
 		} else { 
 			bat "mvn clean package " 
 		} 
