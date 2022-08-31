@@ -1,9 +1,27 @@
 #!/bin/bash
+#
+# Script Purpose:#     - Authenticate to Conjur/Conjur REST API#    - Retrieve a secret value
+#
 
+# Global Variables
+conjur_url=${CONJUR_HOST}
+conjur_pass=${CONJUR_API_KEY}
+conjur_account=devsecops
+conjur_host=host%2Fci%2Fjenkins%2Fcontroller
+secret_id=ci/jenkins/secrets/github_private_key
 
+# Prompt API KEY for Conjur host
 
-CONJUR_SESSION_TOKEN=$(curl -k --location --request POST "${CONJUR_HOST}/authn/devsecops/admin/authenticate" --header "Content-Type: application/json" --header "Accept-Encoding: base64" --data-raw "${CONJUR_API_KEY}" | head -n 1| cut -d $' ' -f2
+# Authenticate against conjur, get a temporary token
+token=$(curl -k -s --header "Accept-Encoding: base64" --data "$conjur_pass" "$conjur_url"/authn/"$conjur_account"/"$conjur_host"/authenticate)
 
-CONJUR_SECRET= curl -k --location --request GET "${CONJUR_HOST}/secrets/devsecops/variable/ci/jenkins/secrets/github_private_key" --header 'Authorization: Token token="$CONJUR_SESSION_TOKEN"'
+# Connect to the Conjur/Conjur REST API to retrieve secret value"
+secret_value=$(curl -k -s --header "Authorization: Token token=\"$token\"" "$conjur_url/secrets/$conjur_account/variable/$secret_id")
 
-echo $CONJUR_SECRET
+echo " "
+echo "---- Retrieving Secret Value -----------"
+echo "ID: $secret_id"
+echo "Value: $secret_value"
+echo "----------------------------------------"
+echo " "
+
