@@ -6,5 +6,5 @@ CONJUR_SESSION_TOKEN= $(curl -k --location --request POST ${CONJUR_HOST}/authn/d
 --header 'Accept-Encoding: base64' \
 --data-raw ${CONJUR_API_KEY})
 
-echo $CONJUR_SESSION_TOKEN
+echo "$CONJUR_SESSION_TOKEN"
 
