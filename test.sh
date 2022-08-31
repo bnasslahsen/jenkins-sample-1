@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "${CONJUR_HOST}"
+
 curl -k --location --request POST '${CONJUR_HOST}/authn/devsecops/admin/authenticate' \
 --header 'Content-Type: application/json' \
 --header 'Accept-Encoding: base64' \
