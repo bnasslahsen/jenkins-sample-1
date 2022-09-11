@@ -15,6 +15,7 @@ secret_id=ci/jenkins/secrets/github_private_key
 # Authenticate against conjur, get a temporary token
 token=$(curl -k -s --header "Accept-Encoding: base64" --data "$conjur_pass" "$conjur_url"/authn/"$conjur_account"/"$conjur_host"/authenticate)
 
+echo "Token=" $token
 # Connect to the Conjur/Conjur REST API to retrieve secret value"
 secret_value=$(curl -k -s --header "Authorization: Token token=\"$token\"" "$conjur_url/secrets/$conjur_account/variable/$secret_id")
 
