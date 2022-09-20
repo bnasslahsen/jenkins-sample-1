@@ -4,7 +4,7 @@
 #
 
 # Global Variables
-conjur_url=${CONJUR_HOST}
+conjur_url=${CONJUR_URL}
 conjur_pass=${CONJUR_API_KEY}
 conjur_account=${CONJUR_ACCOUNT}
 conjur_host=${CONJUR_HOST}
