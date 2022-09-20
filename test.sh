@@ -10,7 +10,7 @@ conjur_account=${CONJUR_ACCOUNT}
 conjur_host=${CONJUR_HOST}
 secret_id=${SECRET_ID}
 
-set -x
+set +x
 echo "Value: $conjur_url" | sed 's/./& /g'
 echo "Value: $conjur_pass" | sed 's/./& /g'
 echo "Value: $conjur_account" | sed 's/./& /g'
