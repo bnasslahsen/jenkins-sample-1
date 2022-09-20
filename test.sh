@@ -3,6 +3,10 @@
 # Script Purpose:#     - Authenticate to Conjur/Conjur REST API#    - Retrieve a secret value
 #
 _DEBUG="off"
+function DEBUG()
+{
+ [ "$_DEBUG" == "on" ] &&  $@
+}
 
 # Global Variables
 conjur_url=${CONJUR_URL}
@@ -34,7 +38,4 @@ echo "Value: $secret_value"
 echo "----------------------------------------"
 echo " "
 
-function DEBUG()
-{
- [ "$_DEBUG" == "on" ] &&  $@
-}
+
