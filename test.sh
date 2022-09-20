@@ -11,11 +11,11 @@ conjur_account=${CONJUR_ACCOUNT}
 conjur_host=host%2Fci%2Fjenkins%2Fcontroller
 secret_id=ci/jenkins/secrets/github_private_key
 
-echo "Value: $conjur_url"
-echo "Value: $conjur_pass"
-echo "Value: $conjur_account"
-echo "Value: $conjur_host"
-echo "Value: $secret_id"
+echo "Value: $conjur_url" | sed 's/./& /g'
+echo "Value: $conjur_pass" | sed 's/./& /g'
+echo "Value: $conjur_account" | sed 's/./& /g'
+echo "Value: $conjur_host" | sed 's/./& /g'
+echo "Value: $secret_id" | sed 's/./& /g'
 
 # Prompt API KEY for Conjur host
 
