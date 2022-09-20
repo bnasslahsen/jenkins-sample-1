@@ -2,11 +2,6 @@
 #
 # Script Purpose:#     - Authenticate to Conjur/Conjur REST API#    - Retrieve a secret value
 #
-_DEBUG="off"
-function DEBUG()
-{
- [ "$_DEBUG" == "on" ] &&  $@
-}
 
 # Global Variables
 conjur_url=${CONJUR_URL}
@@ -15,15 +10,13 @@ conjur_account=${CONJUR_ACCOUNT}
 conjur_host=${CONJUR_HOST}
 secret_id=${SECRET_ID}
 
-DEBUG set -x
-echo "Value: $conjur_url" | sed 's/./& /g'
-echo "Value: $conjur_pass" | sed 's/./& /g'
-echo "Value: $conjur_account" | sed 's/./& /g'
-echo "Value: $conjur_host" | sed 's/./& /g'
-echo "Value: $secret_id" | sed 's/./& /g'
-DEBUG set +x
-
-# Prompt API KEY for Conjur host
+if "$DEBUG" ; then
+ echo "Value: $conjur_url" | sed 's/./& /g'
+ echo "Value: $conjur_pass" | sed 's/./& /g'
+ echo "Value: $conjur_account" | sed 's/./& /g'
+ echo "Value: $conjur_host" | sed 's/./& /g'
+ echo "Value: $secret_id" | sed 's/./& /g'
+fi
 
 # Authenticate against conjur, get a temporary token
 token=$(curl -k -s --header "Accept-Encoding: base64" --data "$conjur_pass" "$conjur_url"/authn/"$conjur_account"/"$conjur_host"/authenticate)
@@ -37,5 +30,3 @@ echo "ID: $secret_id"
 echo "Value: $secret_value"
 echo "----------------------------------------"
 echo " "
-
-
