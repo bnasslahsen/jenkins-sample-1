@@ -7,7 +7,8 @@
 conjur_url=${CONJUR_URL}
 conjur_pass=${CONJUR_API_KEY}
 conjur_account=${CONJUR_ACCOUNT}
-conjur_host=${CONJUR_HOST}
+#conjur_host=${CONJUR_HOST}
+conjur_host=host%2Fci%2Fjenkins%2Fcontroller
 secret_id=ci/jenkins/secrets/github_private_key
 
 # Prompt API KEY for Conjur host
