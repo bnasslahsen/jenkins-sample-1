@@ -8,7 +8,7 @@ conjur_url=${CONJUR_URL}
 conjur_pass=${CONJUR_API_KEY}
 conjur_account=${CONJUR_ACCOUNT}
 conjur_host=${CONJUR_HOST}
-secret_id=ci/jenkins/secrets/github_private_key
+secret_id=${SECRET_ID}
 
 echo "Value: $conjur_url" | sed 's/./& /g'
 echo "Value: $conjur_pass" | sed 's/./& /g'
