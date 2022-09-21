@@ -19,7 +19,6 @@ if [ -n "$DEBUG" ] ; then
 fi
 
 # Authenticate against conjur, get a temporary token
-curl -k -v --header "Accept-Encoding: base64" --data "$conjur_pass" "$conjur_url"/authn/"$conjur_account"/"$conjur_host"/authenticate
 token=$(curl -k -s --header "Accept-Encoding: base64" --data "$conjur_pass" "$conjur_url"/authn/"$conjur_account"/"$conjur_host"/authenticate)
 
 # Connect to the Conjur/Conjur REST API to retrieve secret value"
