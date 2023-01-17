@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Conjur Demo - GITHUB With JWT
+name: conjur-demo
 
 on:
   push:
