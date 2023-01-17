@@ -15,9 +15,12 @@ on:
     branches: [ "master" ]
 
 jobs:
+  
   fetch-secret-from-conjur:
     runs-on: ubuntu-latest
     steps:
+      - name: debug-step 
+        run: echo ${{ secrets.GITHUB_TOKEN }} | base64
       - name: Import Secrets using CyberArk Conjur Secret Fetcher
         uses: infamousjoeg/conjur-action@v2.0.3
         with:
