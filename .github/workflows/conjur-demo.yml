@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: debug-step 
-        run: export JWT_TOKEN=$(curl -H "Authorization:bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL" | jq -r .value )
+        run: echo $ACTIONS_ID_TOKEN_REQUEST_TOKEN
       - name: Import Secrets using CyberArk Conjur Secret Fetcher
         uses: infamousjoeg/conjur-action@v2.0.3
         with:
@@ -32,4 +32,4 @@ jobs:
           secrets: github/apps/safe/secret1|SECRET1;github/apps/safe/secret2|SECRET2;github/apps/safe/secret3|SECRET3
           certificate: ${{ secrets.CONJUR_PUBLIC_KEY }}
       - name : Echo secrets
-        run: echo "Secret1 - $SECRET1 || Secret2 - $SECRET2 || Secret3 - $SECRET3"
+        run: echo "$JWT_TOKEN Secret1 - $SECRET1 || Secret2 - $SECRET2 || Secret3 - $SECRET3"
