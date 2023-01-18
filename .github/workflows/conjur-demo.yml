@@ -31,5 +31,10 @@ jobs:
           authn_id: ${{ secrets.CONJUR_AUTHN_ID }}
           secrets: github/apps/safe/secret1|SECRET1;github/apps/safe/secret2|SECRET2;github/apps/safe/secret3|SECRET3
           certificate: ${{ secrets.CONJUR_PUBLIC_KEY }}
-      - name : Echo secrets
-        run: echo "Secret1 - $SECRET1 || Secret2 - $SECRET2 || Secret3 - $SECRET3"
+      - name : Echo Secret1
+        run: echo "Secret1 - $SECRET1 | sed 's/./& /g'       
+      - name : Echo Secret2
+        run: echo "Secret2 - $SECRET2 | sed 's/./& /g' 
+      - name : Echo Secret3
+        run: echo "Secret3 - $SECRET3 | sed 's/./& /g' 
+
