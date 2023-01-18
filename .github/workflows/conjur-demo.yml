@@ -17,7 +17,6 @@ on:
     branches: [ "master" ]
 
 jobs:
-  
   fetch-secret-from-conjur:
     runs-on: ubuntu-latest
     steps:
