@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: debug-step 
-        run: echo ACTIONS_ID_TOKEN_REQUEST_TOKEN | base64
+        run: echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN" | base64
       - name: Import Secrets using CyberArk Conjur Secret Fetcher
         uses: infamousjoeg/conjur-action@v2.0.3
         with:
