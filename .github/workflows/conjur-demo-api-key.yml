@@ -13,7 +13,7 @@ jobs:
           CONJUR_API_KEY: 2x9n1s33pex8hm1429nsh3gvzrvs2sqmxjx1mw9je8150d0dj116sb0k
           CONJUR_ACCOUNT: cybrlab
           CONJUR_HOST: host%2Fgithub%2Fapps%2Fconjur-demo
-          SECRET_ID: github/apps/safe/secret3
+          SECRET_ID: github/apps/safe/secret2 windows
         run: |
           conjur_url=${{ env.CONJUR_URL }}
           conjur_pass=${{ env.CONJUR_API_KEY }}
