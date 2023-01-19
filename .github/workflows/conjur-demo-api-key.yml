@@ -1,8 +1,12 @@
 name: Test get secrets from conjur
-on: workflow_dispatch
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 jobs:
   get_secrets:
-    runs-on: orchestrator-runner
+    runs-on: ubuntu-latest
     steps:
       - env:
           CONJUR_URL: https://ec2-54-77-71-101.eu-west-1.compute.amazonaws.com
