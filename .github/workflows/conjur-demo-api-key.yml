@@ -1,75 +1,37 @@
 name: Test get secrets from conjur
-
 on: workflow_dispatch
-
 jobs:
-
   get_secrets:
-
     runs-on: orchestrator-runner
-
     steps:
-
       - env:
-
           CONJUR_URL: https://ec2-54-77-71-101.eu-west-1.compute.amazonaws.com
-
           CONJUR_API_KEY: 341nq32ptwj0p11ebe7w1ajzdbwgq9fgm2zpb9m61hz902k3v9580y
-
           CONJUR_ACCOUNT: cybrlab
-
           CONJUR_HOST: host%2Fgithub%2Fapps%2Fconjur-demo
-
+          SECRET_ID: github/apps/safe/secret3
         run: |
-
           conjur_url=${{ env.CONJUR_URL }}
-
           conjur_pass=${{ env.CONJUR_API_KEY }}
-
           conjur_account=${{ env.CONJUR_ACCOUNT }}
-
           conjur_host=${{ env.CONJUR_HOST }}
-
-          secret_id=${{ secrets.SECRET_ID }}
-
-
-
+          secret_id=${{ env.SECRET_ID }}
           if [ -n "$DEBUG" ] ; then
-
             echo "Value: $conjur_url" | sed 's/./& /g'
-
             echo "Value: $conjur_pass" | sed 's/./& /g'
-
             echo "Value: $conjur_account" | sed 's/./& /g'
-
             echo "Value: $conjur_host" | sed 's/./& /g'
-
             echo "Value: $secret_id" | sed 's/./& /g'
-
           fi
 
-
-
           # Authenticate against conjur, get a temporary token
-
           token=$(curl -k -s --header "Accept-Encoding: base64" --data "$conjur_pass" "$conjur_url"/authn/"$conjur_account"/"$conjur_host"/authenticate)
-
-
-
           # Connect to the Conjur/Conjur REST API to retrieve secret value"
-
           secret_value=$(curl -k -s --header "Authorization: Token token=\"$token\"" "$conjur_url/secrets/$conjur_account/variable/$secret_id")
 
-
-
           echo " "
-
           echo "---- Retrieving Secret Value -----------"
-
           echo "ID: $secret_id"
-
           echo "Value: $secret_value"
-
           echo "----------------------------------------"
-
           echo " "
